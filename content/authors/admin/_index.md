@@ -55,8 +55,8 @@ social:
     link: uploads/GitHubrumf.pdf
   - icon: file-pdf
     icon_pack: fas
-    label: View githubrumfuijm
-    link: uploads/GitHubrumf.pdf
+    label: View history
+    link: uploads/plan.txt
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 #email: ""
