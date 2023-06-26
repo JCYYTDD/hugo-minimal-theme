@@ -51,7 +51,7 @@ social:
   # To enable, copy your resume/CV to `static/uploads/resume.pdf`
   - icon: file-pdf
     icon_pack: fas
-    label: View githubrumfuijm
+    label: View github入门实践
     link: uploads/GitHubrumf.pdf
   - icon: file-pdf
     icon_pack: fas
