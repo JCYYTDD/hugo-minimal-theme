@@ -56,7 +56,7 @@ social:
 - icon: file-pdf
     icon_pack: fas
     label: View Resume
-    link: uploads/GitHub入门与实践 .pdf
+    link: uploads/GitHubrumf .pdf
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 #email: ""
 ---
