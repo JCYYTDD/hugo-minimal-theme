@@ -59,8 +59,8 @@ social:
     link: uploads/plan.txt
   - icon: envelope
     icon_pack: fas
-    label: View my_head_picture
-    link: uploads/ht_test.html
+    label: View my_blog
+    link: uploads/komori.html
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 #email: ""
