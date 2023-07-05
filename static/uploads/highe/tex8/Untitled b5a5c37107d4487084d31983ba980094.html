@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Untitled</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b5a5c371-07d4-4870-84d3-1983ba980094" class="page sans"><header><h1 class="page-title"></h1><p class="page-description"></p></header><div class="page-body"><p id="b3ae5eb1-4543-4bce-918d-59995baff4c3" class=""><strong>You:</strong></p><p id="a03184fb-89a3-4df6-85fe-b6ffacfeb8d0" class="">gauss seidel迭代算法</p><hr id="038bcfa8-f6b4-4a31-b3e4-d9479210eece"/><p id="d0db17d9-3385-4105-bd46-22eac2626f5b" class=""><strong>ChatGPT:</strong></p><p id="8382f5ee-7bee-484d-9694-c2b70ab5a719" class="">Gauss-Seidel是一种常用的数值计算方法，用于求解线性方程组的解。它是Jacobi迭代算法的改进版，其思路是在每次迭代中，利用新计算出来的未知数来更新方程组中的其他未知数，从而更快地收敛于方程组的解。</p><p id="702f2220-6daf-4bec-a9e3-aa26cdafa80c" class="">Gauss-Seidel迭代算法的基本思想是：假设有一个线性方程组Ax=b，其中A是一个$n\\times n$的系数矩阵，x和b都是$n\\times 1$的向量，我们希望求解x。我们可以将这个方程组写成如下形式：</p><p id="f38d0f00-2713-4a16-918c-982f1506485b" class="">a11x1+a12x2+⋯+a1nxn\=b1a21x1+a22x2+⋯+a2nxn\=b2……an1x1+an2x2+⋯+annxn\=bn\\begin{aligned} a\_{11}x\<em>1+a\</em>{12}x\<em>2+\\dots+a\</em>{1n}x\_n&amp;=b\<em>1\\\\ a\</em>{21}x\<em>1+a\</em>{22}x\<em>2+\\dots+a\</em>{2n}x\_n&amp;=b\<em>2\\\\ \\dots&amp;\\dots\\\\ a\</em>{n1}x\<em>1+a\</em>{n2}x\<em>2+\\dots+a\</em>{nn}x\_n&amp;=b\_n \\end{aligned}a11x1+a12x2+⋯+a1nxna21x1+a22x2+⋯+a2nxn…an1x1+an2x2+⋯+annxn\=b1\=b2…\=bn</p><p id="b73115d2-1808-4973-b750-4fbe6717ae44" class="">对于Gauss-Seidel算法，我们从初始解向量$x^{(0)}=\[0,\\dots,0\]^T$开始。然后，我们按照以下步骤迭代：</p><ol type="1" id="077e1148-8059-4043-8e4c-f3fd2d9a9139" class="numbered-list" start="1"><li>对于第$i$个未知数$x\_i^{(k+1)}$，使用当前解向量中已知的所有未知数$x\<em>1^{(k+1)},x\</em><em>2^{(k+1)},\\dots,x\</em><em>{i-1}^{(k+1)}$和$x\</em>{i+1}^{(k)},\\dots,x\_n^{(k)}$来计算它的值。</li></ol><p id="42e8d16a-2d59-4d90-865f-633ea070bea7" class="">xi(k+1)\=1aii(bi−∑j\=1i−1aijxj(k+1)−∑j\=i+1naijxj(k))x\<em>i^{(k+1)}=\\frac{1}{a\</em>{ii}}\\left(b\<em>i-\\sum\</em>{j=1}^{i-1}a\<em>{ij}x\</em><em>j^{(k+1)}-\\sum\</em><em>{j=i+1}^na\</em>{ij}x\_j^{(k)}\\right)xi(k+1)\=aii1(bi−∑j\=1i−1aijxj(k+1)−∑j\=i+1naijxj(k))</p><ol type="1" id="ba51220b-3214-4b24-9610-a732cffbe2fe" class="numbered-list" start="1"><li>对于所有的$i=1,2,\\dots,n$，将当前迭代的解$x\_i^{(k+1)}$赋值给解向量$x$的第$i$个分量。</li></ol><ol type="1" id="9ea05092-6527-41f2-a6b6-3976cdd70d59" class="numbered-list" start="2"><li>重复步骤1和步骤2，直到解向量$x$的值收敛于线性方程组的解，或者达到预设的迭代次数。</li></ol><p id="8783d7ac-d7a9-4d85-8da3-766432a3a52e" class="">需要注意的是，Gauss-Seidel算法只有在系数矩阵$A$满足一些特定的条件时才能收敛。一个常用的判断矩阵收敛性的方法是判断矩阵$A$是否是对称正定矩阵。如果是，那么Gauss-Seidel算法一定能够收敛，否则收敛性不能保证。</p><hr id="81413cfa-d026-486b-ac10-b89d066652f1"/><p id="18101af0-7344-48b4-8e9b-125f1bb7b9c9" class=""><strong>You:</strong></p><p id="060b4f0e-39fc-4df8-ad72-8dc137cd344b" class="">并行的gauss seidel迭代</p><hr id="4da511db-9f1b-4bfd-afcf-e317d25857cc"/><p id="a3ea71f7-1b09-4585-ab30-4a183d3f5cb2" class=""><strong>ChatGPT:</strong></p><p id="f92648b6-d6ab-4efe-b065-65b9d575f165" class="">并行的Gauss-Seidel迭代算法是一种使用多个处理器或计算节点同时计算线性方程组的解的算法。在这种算法中，线性方程组被划分为若干个子问题，每个子问题被分配给一个处理器或计算节点来求解，各处理器或计算节点之间通过通信来共享数据并协同工作。</p><p id="5fb3f480-c64e-45f6-aaf4-f8e219c48f0b" class="">并行的Gauss-Seidel算法的主要思路是将系数矩阵$A$分成若干个子矩阵，并将每个子矩阵分配给一个处理器或计算节点来处理。在每个处理器或计算节点内部，可以使用串行的Gauss-Seidel算法来计算该子矩阵的解向量，从而加速整个线性方程组求解的过程。</p><p id="c20af764-a808-4280-a71f-e0fbf67ae363" class="">在并行计算中，处理器或计算节点之间需要进行数据交换和同步。具体来说，在每个迭代中，每个处理器或计算节点需要将其边界处的解向量元素发送给相邻的处理器或计算节点，并接收相邻处理器或计算节点发送的边界元素。这些数据交换操作可以使用消息传递接口（如MPI）来实现。</p><p id="df103864-0ae4-4616-aef1-0570f7b3a816" class="">需要注意的是，并行的Gauss-Seidel算法的性能和并行计算平台的具体实现方式有关，例如使用多个CPU、GPU或FPGA等不同的计算平台，以及不同的通信和同步策略。因此，在设计并行算法时，需要考虑具体的实现细节，以充分发挥计算平台的性能。</p><hr id="d8551c4c-4baf-4640-8513-92175ead2d59"/><p id="644e859d-40c7-4a0f-9e9c-af4e06043020" class=""><strong>You:</strong></p><p id="446450d5-2264-47fc-bb71-f0d9746d2c12" class="">1.如果矩阵是按照列循环方式存放在处理机中的，请问是否可以设计一个并行计算Gauss-Seidal的方法;</p><hr id="17fff15a-ec00-4451-a320-751a9b5ac9a9"/><p id="368c9df5-d2e4-45b5-843b-ce219164b8ea" class=""><strong>ChatGPT:</strong></p><p id="39c29a92-f338-4422-9f24-833dc0d8058d" class="">如果矩阵按照列循环方式存放在处理机中，可以设计一个基于列分割的并行计算Gauss-Seidel算法。具体来说，将系数矩阵$A$按列进行分割，将每一列分配给不同的处理器或计算节点来处理。同时，将解向量$x$也按列分割，每个处理器或计算节点处理相应的列。算法流程如下：</p><ol type="1" id="7c5cb57a-5d3d-4499-a7b3-2848e8744400" class="numbered-list" start="1"><li>初始化解向量$x$；</li></ol><ol type="1" id="7d538bff-e6f6-4484-9c08-c0d7e6b386e6" class="numbered-list" start="2"><li>在每个迭代中，对于每个处理器或计算节点所处理的列，使用串行的Gauss-Seidel算法来计算该列对应的解向量元素，更新$x$；</li></ol><ol type="1" id="0dce1d75-4737-4760-af27-05e1e70621c9" class="numbered-list" start="3"><li>在每个迭代的末尾，进行数据交换和同步，即将每个处理器或计算节点所处理的列的边界元素发送给相邻的处理器或计算节点，并接收相邻处理器或计算节点发送的边界元素；</li></ol><ol type="1" id="03025053-0d24-45c4-8547-a1e597b3bd74" class="numbered-list" start="4"><li>重复第2步和第3步，直到解向量$x$收敛为止。</li></ol><p id="a070a91f-cf00-42dd-84a3-fa02807471a0" class="">需要注意的是，在并行计算中，数据交换和同步的效率对算法的性能影响很大。如果处理器或计算节点之间的通信开销过大，可能会导致算法的性能下降。因此，在实际实现中，需要考虑如何优化通信和同步策略，以充分发挥计算平台的性能。</p><hr id="20fe0132-dcaf-4e07-8080-aebd9a85cac3"/><p id="6f81d098-97a9-4179-b8ad-ff89df3104ef" class=""><strong>You:</strong></p><p id="02a0695f-ff03-4a41-a69d-31ca5c42807f" class="">基于列分割的并行计算Gauss-Seidel算法</p><hr id="f30d4e1b-bd9b-48ce-bd37-08b426383ec4"/><p id="8a9dadd6-098a-415e-b438-82aa94a73cd6" class=""><strong>ChatGPT:</strong></p><p id="cf053bfc-6623-4324-88c0-2f05615173df" class="">基于列分割的并行计算Gauss-Seidel算法将系数矩阵按列进行划分，每个处理器或计算节点负责处理一部分列，从而实现并行计算。算法流程如下：</p><ol type="1" id="037820dc-b6ee-4bf5-9bb5-93eea0c15206" class="numbered-list" start="1"><li>将系数矩阵$A$按列进行划分，将每一列分配给不同的处理器或计算节点；</li></ol><ol type="1" id="c4fc2026-0f20-4a1d-9a71-574a33314b4d" class="numbered-list" start="2"><li>初始化解向量$x$；</li></ol><ol type="1" id="aec2ee50-edbe-48f1-949e-2f56ea82caf2" class="numbered-list" start="3"><li>在每个迭代中，对于每个处理器或计算节点所处理的列，使用串行的Gauss-Seidel算法来计算该列对应的解向量元素，更新$x$；</li></ol><ol type="1" id="ed87a185-496c-4708-8ca7-b6d18563b3cc" class="numbered-list" start="4"><li>在每个迭代的末尾，进行数据交换和同步，即将每个处理器或计算节点所处理的列的边界元素发送给相邻的处理器或计算节点，并接收相邻处理器或计算节点发送的边界元素；</li></ol><ol type="1" id="9db8e024-703a-406f-8f7b-33844a4f7d90" class="numbered-list" start="5"><li>重复第3步和第4步，直到解向量$x$收敛为止。</li></ol><p id="a6a0587d-4061-4d10-851f-39f0bc7217fa" class="">需要注意的是，数据交换和同步的效率对算法的性能影响很大。如果处理器或计算节点之间的通信开销过大，可能会导致算法的性能下降。因此，在实际实现中，需要考虑如何优化通信和同步策略，以充分发挥计算平台的性能。另外，还可以考虑使用多级划分的策略来进一步提高算法的并行性能。</p><hr id="359c03a7-b63b-4c7b-b425-2c9a98dc825b"/><p id="34430ffa-9831-4f86-b0d1-a85a0e7ffb38" class=""><strong>You:</strong></p><p id="f0beac44-4223-4beb-b47e-b332f15d9f9d" class="">在每个迭代中，对于每个处理器或计算节点所处理的列，使用串行的Gauss-Seidel算法来计算该列对应的解向量元素，更新$x$； 说的具体点</p><hr id="baaa4069-a6c2-4273-ad6c-5e749e6c2596"/><p id="4d75180b-cd0b-48f2-b911-4e8a8f998445" class=""><strong>ChatGPT:</strong></p><p id="f51396f3-f9f0-478a-ae1a-7fda647930d7" class="">在每个迭代中，对于每个处理器或计算节点所处理的列，可以使用串行的Gauss-Seidel算法来计算该列对应的解向量元素。具体来说，对于第$i$列，可以采用以下方式进行迭代更新：</p><ol type="1" id="3ad8f1ff-d53b-4a41-b8dc-45f23edec982" class="numbered-list" start="1"><li>初始化解向量$x\_i$的第一个元素$x\_i^{(0)}$；</li></ol><ol type="1" id="2879a392-e08b-4689-896a-c1094b0b0d87" class="numbered-list" start="2"><li>对于$j=2,3,\\dots,n$，计算$x\<em>i^{(k+1)}$，其中$k$为当前迭代次数：xi(k+1)\=1aii(bi−∑j\=1i−1aijxj(k)−∑j\=i+1naijxj(k))x\</em><em>i^{(k+1)} = \\frac{1}{a\</em><em>{ii}}(b\</em><em>i - \\sum\</em><em>{j=1}^{i-1}a\</em>{ij}x\<em>j^{(k)} - \\sum\</em>{j=i+1}^{n}a\_{ij}x\_j^{(k)})xi(k+1)\=aii1(bi−j\=1∑i−1aijxj(k)−j\=i+1∑naijxj(k))</li></ol><ol type="1" id="7807406f-a40f-4520-9552-76312476e4df" class="numbered-list" start="3"><li>将$x\_i^{(k+1)}$存储在解向量$x$中的第$i$个位置；</li></ol><ol type="1" id="a4c51e56-4cad-4145-89bd-e1c6a9081654" class="numbered-list" start="4"><li>重复第2步和第3步，直到$x\_i$收敛为止。</li></ol><p id="3aac17a0-5264-443d-bd10-4ce94466ab7f" class="">在计算过程中，需要使用系数矩阵$A$和右端向量$b$的信息。对于每个处理器或计算节点，只需要保存其所负责的列对应的部分$A$和$b$的信息即可。每个处理器或计算节点在计算时，只需要使用自己所负责的部分$A$和$b$的信息即可，不需要访问其他处理器或计算节点的数据。这样可以减少数据通信和同步的开销，提高并行计算效率。</p><hr id="bd4ac657-80e7-4f21-80d7-bb80805d5f59"/><p id="2ebc0c6a-10cb-4b7e-b981-c7b491194075" class=""><strong>You:</strong></p><p id="0f4f1106-868b-4bba-a385-7f89bc1a2e78" class="">你这个不还是行存储的计算方式，现在每个计算单元是一列，而不是一行</p><hr id="10adee7c-ad85-4e0d-8d00-9f21cd65e707"/><p id="4a5b9824-3710-4992-8a01-240815136133" class=""><strong>ChatGPT:</strong></p><p id="27752023-6190-4784-a773-6cbd104faf18" class="">非常抱歉，我的回答可能有误导之处。针对矩阵按列循环方式存储在处理机中的情况，应该按照列分割的方式进行并行计算。</p><p id="44b04ce2-5c71-4d24-8bdd-ed0a4504a727" class="">具体来说，可以将系数矩阵$A$按列进行划分，将每一列分配给不同的处理器或计算节点。在每个迭代中，每个处理器或计算节点负责计算其所处理的列的部分解向量元素，并在每个迭代结束时进行数据交换和同步，从而实现并行计算。具体实现细节可以参考我之前给出的基于列分割的并行计算Gauss-Seidel算法的描述。</p><hr id="d40d1fed-ba41-4c88-bbbb-e13243a13b11"/><p id="c8855993-9c52-4681-8a79-d1027a855357" class=""><strong>You:</strong></p><p id="da43c5fe-a18b-4e23-963b-906eec690bbb" class="">你之前给出的是行分割求解向量的方式，现在是列分割，已经完全不一样了</p><hr id="21f267a5-51f4-4282-8ecc-855a445ead5e"/><p id="302d1b3f-71c0-4bf8-98de-9b7bd6e058a8" class=""><strong>ChatGPT:</strong></p><p id="ec8842a5-7386-4b27-be8a-71431deeca33" class="">非常抱歉，我的回答仍然有误。针对矩阵按列循环方式存储在处理机中的情况，确实需要按照列分割的方式进行并行计算，而不是行分割。感谢您的纠正。</p><p id="c46f9a3d-6ad5-486a-83f4-d2ccf06a5040" class="">在按照列分割的方式进行并行计算时，可以将系数矩阵$A$按列进行划分，将每一列分配给不同的处理器或计算节点。在每个迭代中，每个处理器或计算节点负责计算其所处理的列的部分解向量元素，并在每个迭代结束时进行数据交换和同步，从而实现并行计算。具体实现细节可以参考以下算法描述：</p><ol type="1" id="8c75bbc0-b10d-40f0-a8c0-40fd1b88af15" class="numbered-list" start="1"><li>将系数矩阵$A$按列进行划分，将每一列分配给不同的处理器或计算节点。</li></ol><ol type="1" id="353266f0-08c5-4879-9551-e38e894ef70a" class="numbered-list" start="2"><li>对于每个处理器或计算节点所处理的列，初始化解向量$x$的对应元素$x\_i^{(0)}$。</li></ol><ol type="1" id="50f6ba61-74bc-48aa-83b7-f44bbdf83f29" class="numbered-list" start="3"><li>在每个迭代中，对于每个处理器或计算节点所处理的列，使用串行的Gauss-Seidel算法来计算该列对应的部分解向量元素，更新$x$。</li></ol><ol type="1" id="e71149c1-a11b-4888-8e9e-154ec4133b04" class="numbered-list" start="4"><li>在每个迭代结束时，进行数据交换和同步，确保每个处理器或计算节点都能获取到其他处理器或计算节点计算得到的新的解向量元素值。</li></ol><ol type="1" id="85631879-cf58-4e62-9670-bd90c45ad8a8" class="numbered-list" start="5"><li>重复步骤3和步骤4，直到解向量$x$收敛为止。</li></ol><p id="3e0f3a4f-6970-4206-93b0-cbae68bf8dcc" class="">在计算过程中，需要使用系数矩阵$A$和右端向量$b$的信息。对于每个处理器或计算节点，只需要保存其所负责的列对应的部分$A$和$b$的信息即可。每个处理器或计算节点在计算时，只需要使用自己所负责的部分$A$和$b$的信息即可，不需要访问其他处理器或计算节点的数据。这样可以减少数据通信和同步的开销，提高并行计算效率。</p></div></article></body></html>

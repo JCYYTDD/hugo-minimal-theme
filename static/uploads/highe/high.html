@@ -1,0 +1,1071 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>高性能计算</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4b1ebbf1-75bd-476e-ab8d-e88fd03ca335" class="page sans"><header><h1 class="page-title">高性能计算</h1><p class="page-description"></p></header><div class="page-body"><figure id="b3d76080-b9e8-4779-8e5a-941f9b4deba6" class="link-to-page"><a href="tex1/MPI函数目录 b3d76080b9e847798e5a941f9b4deba6.html">MPI函数目录</a></figure><figure id="8f89bc55-4246-4329-a6c7-e07783c01912" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled.png"><img style="width:1522px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled.png"/></a></figure><pre id="2775da3f-bb92-4f33-9c68-41f92230044a" class="code"><code>#include &lt;stdio.h&gt;
+
+void add_matrices(int rows, int cols, int first[][cols], int second[][cols], int sum[][cols])
+{
+    int i, j;
+
+    for (i = 0; i &lt; rows; i++)
+    {
+        for (j = 0; j &lt; cols; j++)
+        {
+            sum[i][j] = first[i][j] + second[i][j];
+        }
+    }
+}
+
+int main()
+{
+    int rows, cols, i, j;
+    int first[10][10], second[10][10], sum[10][10];
+
+    printf(&quot;输入矩阵的行数和列数：\n&quot;);
+    scanf(&quot;%d %d&quot;, &amp;rows, &amp;cols);
+
+    printf(&quot;输入第一个矩阵的元素：\n&quot;);
+
+    for (i = 0; i &lt; rows; i++)
+        for (j = 0; j &lt; cols; j++)
+            scanf(&quot;%d&quot;, &amp;first[i][j]);
+
+    printf(&quot;输入第二个矩阵的元素：\n&quot;);
+
+    for (i = 0; i &lt; rows; i++)
+        for (j = 0; j &lt; cols; j++)
+            scanf(&quot;%d&quot;, &amp;second[i][j]);
+
+    add_matrices(rows, cols, first, second, sum);
+
+    printf(&quot;两个矩阵相加的结果：\n&quot;);
+
+    for (i = 0; i &lt; rows; i++)
+    {
+        for (j = 0; j &lt; cols; j++)
+        {
+            printf(&quot;%d &quot;, sum[i][j]);
+        }
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre><p id="8fe4f537-776c-41d6-b75a-a7ac53708e94" class=""><a href="https://code.visualstudio.com/docs/languages/cpp">C++ programming with Visual Studio Code</a></p><p id="92a7110e-584b-4110-ae20-9811fd25a6b7" class=""><a href="https://www.bilibili.com/read/cv11997883">详细的win10下vscode配置c/c++环境流程 - 哔哩哔哩 (bilibili.com)</a></p><p id="cb270a3b-e8a4-4f3d-83e5-9bb765f096ab" class="">在C语言中，多维数组的内存布局是一维数组的扁平化存储。例如，一个二维数组<code><strong>a</strong></code>的存储顺序是按照<code><strong>a[0][0]</strong></code>、<code><strong>a[0][1]</strong></code>、<code><strong>a[1][0]</strong></code>、<code><strong>a[1][1]</strong></code>等顺序存储的。因此，可以将一个多维数组看作是一个一维数组的数组，其中每个数组都表示一个维度。</p><p id="a0dc6bea-16bf-4e43-87d2-232a02af7751" class="">在函数声明中，当你写<code><strong>int first[][cols]</strong></code>时，你正在声明一个二维数组参数。这个参数的第一维大小未指定，但第二维大小被指定为<code><strong>cols</strong></code>。这是因为在函数声明中，C编译器需要知道如何将多维数组转换成一维数组，以便正确地传递参数。因此，只有第一维大小未指定，而第二维大小被指定。</p><p id="917d703f-61dd-48d2-a1f1-a07890ca316e" class="">当你在函数调用中使用<code><strong>first</strong></code>数组参数时，你必须指定第一维的大小。例如，假设你有一个<code><strong>2 x 3</strong></code>的矩阵<code><strong>a</strong></code>，你可以这样调用函数：</p><figure id="ca00afce-b2ad-4c29-b820-5fd11b23782b" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%201.png"><img style="width:1521px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%201.png"/></a></figure><pre id="c7f65723-8b93-4704-be78-16a7453a7ba5" class="code"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+
+double evaluate_polynomial(double *coefficients, int degree, double x) {
+    double result = 0.0;
+    for (int i = 0; i &lt;= degree; i++) {
+        result += coefficients[i] * pow(x, i);
+    }
+    return result;
+}</code></pre><figure id="cc45cc48-8a10-447c-8e9d-1ada72f50db1" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%202.png"><img style="width:1341px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%202.png"/></a></figure><pre id="9ae8ff68-af81-4b2e-9e98-80f17756ec63" class="code"><code>double fast_power(double x, int n) {
+    double res = 1.0;
+    while (n) {
+        if (n &amp; 1) {
+            res *= x;
+        }
+        x *= x;
+        n &gt;&gt;= 1;
+    }
+    return res;
+}</code></pre><p id="f18e2ea6-8c4b-4a09-8de2-7aaa43a6f361" class="">
+</p><p id="85a41dfd-906f-4829-85c2-0b2f911166f6" class="">4.</p><figure id="551b805f-347d-4678-b82d-bcc1eba8634f" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%203.png"><img style="width:1010px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%203.png"/></a></figure><pre id="b7ad6d9a-8759-4669-9d5e-c21eb22a6516" class="code"><code>#include &lt;stdio.h&gt;
+#include &quot;mpi.h&quot;
+#include &lt;stdlib.h&gt;
+
+using namespace std;
+
+int main(int argc, char** argv) {
+    MPI_Init(&amp;argc, &amp;argv);
+
+    int rank, size;
+    MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &amp;size);
+
+    int* sendbuf = (int*) malloc(size * sizeof(int));
+    int* recvbuf = (int*) malloc(size * sizeof(int));
+
+
+    // Prepare send buffer
+    for (int i = 0; i &lt; size; i++) {
+        sendbuf[i] = rank * 10 + i;
+    }
+
+    // Exchange data
+    MPI_Alltoall(sendbuf, 1, MPI_INT, recvbuf, 1, MPI_INT, MPI_COMM_WORLD);
+
+    // Print received data
+    for (int i = 0; i &lt; size; i++) {
+        printf(&quot;Process %d received %d from process %d\n&quot;, rank, recvbuf[i], i);
+    }
+
+    MPI_Finalize();
+    free(sendbuf);
+    free(recvbuf);
+
+    return 0;
+}</code></pre><figure id="1864b935-ebf5-4484-bc4d-6632955a0d27" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%204.png"><img style="width:674px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%204.png"/></a></figure><p id="ec10406f-9dce-4bb7-a730-a2d6a9c423e9" class="">MPI_Alltoall(sendbuf, 1, MPI_INT, recvbuf, 1, MPI_INT, MPI_COMM_WORLD);</p><p id="38c88095-dc81-4027-9e00-5bf09194fb18" class="">会均分的发送所有数据到其他进程中，会按照数据的顺序，按顺行发送给发送给按顺序的进程，接受数据的缓存区也是按顺序从前到后接受，数据前后排列起来不会互相覆盖。</p><p id="a3ec15e3-5e29-4189-8dc3-ebe00526e656" class="">可以看到这个函数调用的条件是发送与接受缓存要大小相同</p><p id="32d91391-3e6c-4bc5-ae6b-55c5e52fb520" class="">按进程号的顺序，最后的进程所有的数据都组成每个进程中接受缓存的最后的数据，中间进程所有数据均分组成中间的数据，开始的进程均分组成成最开始的数据</p><p id="901a50ec-c56b-429b-83d2-d6668b071b35" class="">MPI_Alltoall会将发送缓冲区中的数据平均分配给所有进程，每个进程接收到的数据量相等。</p><p id="05fa5799-27f6-4571-847d-d8667f5d4e52" class="">MPI实际上是站在全局视野下进行的</p><p id="c5c3afe3-276e-423b-a1c4-82c105a508a2" class="">5.用send recv实现MPI_Alltoall</p><p id="f2ab79e0-2f1a-42e7-85a5-40603e651ede" class="">size</p><p id="df322abd-e967-4235-986e-7ec8e5bee867" class="">int MPI_Alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm):
+基本思路就是0块发到0进程 1块发到1进程 每个进程都是这样处理，接收也是for循环把接受的块按进程排列起来、</p><p id="8df4855f-ddc0-478f-a3a9-99a2a9e00f7b" class="">细节需要有两个临时缓存</p><p id="f6dfa886-b7d8-4c20-9476-62a5917e1f3c" class="">并且如果是本进程朝自己发送块可以直接复制到自己的接收缓存</p><p id="c2ce6901-b900-40ea-a04e-984b78ba46d1" class=""><div class="indented"><pre id="c5cc12ff-0932-494a-9725-9a3955af32fe" class="code"><code>//size
+int MPI_Alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm):
+	for (int i=0 ;i&lt;size;i++):
+		MPI_Send(sendbuf+i*sendcount*sizeof(sendtype),sendcount,sendtype,i,99,comm)
+	for (int i=0;i&lt;size;i++):
+		MPI_Recv( recvbuf+i*sendcount*sizeof(sendtype),sendcount, sendtype,i, 99,  comm, MPI_Status *status )</code></pre><pre id="1051d213-76b0-4757-be64-11a57783bde8" class="code"><code>#include &lt;stdio.h&gt;
+#include &quot;mpi.h&quot;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+using namespace std;
+
+void my_Alltoall(void * sendbuf, int sendcount, MPI_Datatype sendtype,
+    void* recvbuf, int recvcount, MPI_Datatype recvtype,
+    MPI_Comm comm) {
+    int size, rank, i, j, recvtype_size, sendtype_size;
+    MPI_Status status;
+    MPI_Comm_size(comm, &amp;size);
+    MPI_Comm_rank(comm, &amp;rank);
+    //总大小 所有进程的发送接受的大小
+    int send_size = sendcount * size;
+    int recv_size = recvcount * size;
+    //每个进程有自己的内存偏移
+    int * send_disp = (int *)malloc(size * sizeof(int));
+    int * recv_disp = (int *)malloc(size * sizeof(int));
+    int send_tag = 1, recv_tag = 1;
+
+    // Compute displacements for scatter/gather
+    for (i = 0; i &lt; size; i++) {
+        send_disp[i] = i * sendcount;
+        recv_disp[i] = i * recvcount;
+    }
+    //计算一个类型的大小
+    MPI_Type_size(recvtype, &amp;recvtype_size);
+    MPI_Type_size(sendtype, &amp;sendtype_size);
+
+
+
+
+    // Allocate temporary buffers
+    char* tmp_sendbuf = (char*)malloc(send_size * sendtype_size);
+    char* tmp_recvbuf = (char*)malloc(recv_size * recvtype_size);
+
+    // Copy sendbuf to temporary buffer
+    memcpy(tmp_sendbuf, sendbuf, send_size * sendtype_size);
+
+    // Perform all-to-all communication
+    for (i = 0; i &lt; size; i++) {
+        if (i != rank) {
+            // Send data to destination
+            //第i块发往第i个进程
+            MPI_Send(tmp_sendbuf + send_disp[i] * sendtype_size,
+                sendcount, sendtype, i, send_tag, comm);
+            // Receive data from source
+            //接收的第i个进程放到第i块
+            MPI_Recv(tmp_recvbuf + recv_disp[i] * recvtype_size,
+                recvcount, recvtype, i, recv_tag, comm, &amp;status);
+        }
+        else {
+            // Copy local data to receive buffer
+            memcpy(tmp_recvbuf + recv_disp[i] * recvtype_size,
+                tmp_sendbuf + send_disp[i] * sendtype_size,
+                sendcount * sendtype_size);
+        }
+    }
+
+    // Copy received data to recvbuf
+    memcpy(recvbuf, tmp_recvbuf, recv_size * recvtype_size);
+
+    // Free temporary buffers
+    free(tmp_sendbuf);
+    free(tmp_recvbuf);
+}
+
+
+int main(int argc, char** argv) {
+    MPI_Init(&amp;argc, &amp;argv);
+
+    int rank, size;
+    MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &amp;size);
+
+    int* sendbuf = (int*) malloc(size * sizeof(int));
+    int* recvbuf = (int*) malloc(size * sizeof(int));
+
+
+    // Prepare send buffer
+    for (int i = 0; i &lt; size; i++) {
+        sendbuf[i] = rank * 10 + i;
+    }
+
+    // Exchange data
+    my_Alltoall(sendbuf, 1, MPI_INT, recvbuf, 1, MPI_INT, MPI_COMM_WORLD);
+
+    // Print received data
+    for (int i = 0; i &lt; size; i++) {
+        printf(&quot;xProcess %d received %d from process %d\n&quot;, rank, recvbuf[i], i);
+    }
+
+    MPI_Finalize();
+    free(sendbuf);
+    free(recvbuf);
+
+    return 0;
+}</code></pre><figure id="4dacf3db-55ac-4473-b20f-5efcec24b8c4" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%205.png"><img style="width:651px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%205.png"/></a></figure><pre id="4fc62653-888e-4002-9c2d-d16385f5d880" class="code"><code>//简洁版my_alltoall
+int myAlltoall(const void *sendbuf, int sendcount,
+               MPI_Datatype sendtype, void *recvbuf, int recvcount,MPI_Datatype recvtype, MPI_Comm comm)
+{
+    int rank, size;
+    int type_size;
+    MPI_Type_size(sendtype, &amp;type_size);
+    MPI_Comm_rank(comm, &amp;rank);
+    MPI_Comm_size(comm, &amp;size);
+    for (int i = 0; i &lt; size; ++i){
+    if (i == rank){
+    	memcpy(sendbuf + i * sendcount * type_size, recvbuf + 
+               i * recvcount *type_size, sendcount * type_size);
+    	continue;
+    }
+    MPI_Send(sendbuf + i * sendcount * type_size, sendcount, 
+             sendtype, i, 0, comm);
+    MPI_Recv(recvbuf + i * recvcount * type_size, 
+             recvcount, recvtype, i, 0,
+    comm, MPI_STATUS_IGNORE);
+    }
+    
+}</code></pre><p id="3d9fad0e-aaaf-4d07-be0e-0325f974eb2d" class="">6.</p><figure id="01c36249-5317-48ee-b4e3-4106113638f5" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%206.png"><img style="width:700px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%206.png"/></a></figure><p id="0a65bc5f-00af-4bff-a624-32199d01ccaf" class="">        int MPI_Bcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm)</p><p id="41ac65bd-cd06-4ba9-ae8f-7d1ef7bfc0b0" class="">root 要广播的数据所在的进程</p><p id="3e4349b3-ba85-4b97-82f7-a34d73fb969f" class="">问题是要发送的数据要确保是进程数的整数倍才可以，否则除不开自然也不能scatter<div class="indented"><figure id="5a78b41d-61f5-45bb-85ef-4706bd7394a0" class="link-to-page"><a href="tex2/MPI_Bcast 5a78b41d61f545bb85ef4706bd7394a0.html">MPI_Bcast</a></figure><p id="f26c3b62-47a6-4a61-a011-d67d9d13a440" class="">  buff 、count、 type 如果是指定的root是取出对应的数据，如果是其他进程，是用于接受的据的，名字大小一样，但不同进程有进程间的资源隔离</p><p id="d451adc8-7cc9-4d09-b65f-eef2bc430fc2" class="">comm 通信器 通信空间</p><p id="458be27f-6f69-478a-bb18-577199091a45" class="">
+</p><p id="ebd19086-f612-428a-bd79-9c08b4a45eb0" class="">int MPI_Scatter(void* sendbuf, int sendcount,MPI_Datatype sendtype, void* recvbuf,
+int recvcount, MPI_Datatype recvtype,
+int root, MPI_Comm comm )</p><figure id="c08eaa2d-f43c-4b55-ac04-e6da178fe9b2" class="link-to-page"><a href="tex3/MPI_Scatter c08eaa2df43c4b55ac04e6da178fe9b2.html">MPI_Scatter</a></figure><p id="774a7b23-a9d3-4303-a229-f762aaeea3e5" class="">MPI_Scatter 把指定root进程的数据均分发送给其他进程，在recvbuf中</p><p id="e2b80d43-327b-4ccd-a4b6-b181b716eef7" class=""> buff 、count、 type有发送数据的有接受数据的，root指定要发送数据所在的进程</p><p id="c2c1732a-078a-44bb-b8fc-b7cf8813166e" class="">comm通信子</p><p id="50b3bac8-78ff-46c2-a35a-f0c9684ee084" class="">
+</p><p id="51918f2f-0f4b-4da4-a727-147cb9c2a9a3" class="">int MPI_Gather(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
+void *recvbuf, int recvcount, MPI_Datatype recvtype,
+int root, MPI_Comm comm)</p><figure id="f165800c-a0c5-4480-b7e1-e2255f28de44" class="link-to-page"><a href="tex4/MPI_Gather f165800ca0c54480b7e1e2255f28de44.html">MPI_Gather</a></figure><p id="94cd77b2-21be-4194-a05a-13222b7b800a" class="">sendbuf、 count、 type 是指每个进程要发送的数据，大小是相同的</p><p id="b1ee6469-5c1d-4add-bca9-e38bf2f47861" class="">recvbuf 、 count 、type 是要接接收的进程接收到哪里，他的总大小是所有进程发送数据大小的和，从前往后按进程号罗起来</p><p id="a9515bb8-3b1c-43fb-9c4d-d0600d4d667e" class="">root 要接收到的进程</p><p id="71503eda-9f91-401b-93b4-1df5f2495c5d" class="">comm通信子</p><p id="01a2b521-08da-4026-bf60-3c428648ab1a" class="">
+</p><p id="45b82291-aad4-46a4-af8d-dc22bd3c6505" class="">MPI_Bcast=MPI_Scatter+MPI_Gather</p><p id="d8b64050-95e3-40cd-95fb-a594c885598d" class="">相当于把整个数组先均分到每一个进程中MPI_Scatter，再统一把每个进程中的子数组再归约到每个进程中（MPI_Gather），这样每个被归约的进程也有了完整的数组</p><p id="a2e94031-d5e9-4647-a100-1bc2a266347d" class="">//将进程0中的buffer数组广播到所有进程中</p><p id="dc554234-4aa4-48cc-9682-f72807382c0f" class="">MPI_Bcast(buffer, size/p, MPI_INT, 0, MPI_COMM_WORLD)</p><p id="faef8dc7-4f3b-4e75-9061-d13c7a4f2dbb" class="">等价于</p><p id="47614648-7a5f-4211-8ca4-aa34887e81dd" class="">//把buffer数组先均分到每个进程中 </p><p id="88ead6a3-01b2-4378-be08-6584fe42b931" class="">MPI_Scatter(buffer,size/p,MPI_INT,recv,size/p,MPI_INT,0,MPI_COMM_WORLD)</p><p id="cbbda704-4c34-4a52-9307-0e0e9d4e1d91" class="">//total数组的大小与buffer数组大小相同</p><p id="10551be8-aef8-4094-be56-f81944ef1a09" class="">int total[size]</p><p id="f59c7346-2771-4c9b-85b1-bfd7a3349bf6" class="">for (int i=0;i&lt;p;i++)</p><p id="50d2c8a7-6502-403e-826b-9f93443bf070" class="">{</p><p id="7b429b60-bdaf-4a6e-a604-c3522642ae07" class="">//将每个进程中的子数组规约到每一个进程实现完整数组的广播</p><p id="775abd55-8efb-406e-bed8-614db808415a" class="">MPI_Gather(recv,size/p,MPI_INT,total,size/p,MPI_INT,i,MPI_COMM_WORLD);</p><p id="6a74c022-7c90-4f18-ad9d-7fe2948a8ebb" class="">}</p><p id="80304db0-cb2f-4610-a0e1-ff2defa8b0fe" class="">
+</p><figure id="f92a9e9c-aad1-4267-b5ab-6690565866b6" class="link-to-page"><a href="tex5/正确答案 f92a9e9caad14267b5ab6690565866b6.html">正确答案</a></figure><figure id="810e6d00-f4ab-4a24-b7e3-4b6ee43f3406" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%207.png"><img style="width:393px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%207.png"/></a></figure><p id="28ec956f-ae19-449b-8860-c897a98eb750" class="">
+</p></div></p><p id="cb0d435f-e7ff-4205-9cdf-03eacac80285" class="">7.用MPI_UB实现红蓝块传输的问题</p><figure id="cacb1b44-11bb-4f2e-a510-d30d8233d172" class="link-to-page"><a href="tex6/MPI_UB cacb1b4411bb4f2ea510d30d8233d172.html">MPI_UB</a></figure><figure id="ed628333-eb54-4600-9abc-8b1deb54ad26" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%208.png"><img style="width:666px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%208.png"/></a></figure><figure id="68ef544a-ceb6-49a2-87d2-c9d7ef73d375" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%209.png"><img style="width:443px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%209.png"/></a></figure><figure id="31f83137-2f18-4d6b-984d-dc0d81f733ba" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2010.png"><img style="width:1064px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2010.png"/></a></figure><figure id="dee78bb0-791f-4619-9796-d117e99e12e5" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2011.png"><img style="width:1057px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2011.png"/></a></figure><p id="c9ca2a40-2878-4e48-8a7d-91b4308e0db3" class="">8.MPI发送结构体</p><figure id="b1a33b50-8c3a-4505-aae6-2d0028aef58d" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2012.png"><img style="width:1099px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2012.png"/></a></figure><figure id="bf4a948d-ce5c-422b-887e-e15fd49ef396" class="link-to-page"><a href="tex7/MPI_Type_struct bf4a948dce5c422b887ee15fd49ef396.html">MPI_Type_struct</a></figure><figure id="09ff5c3b-e216-456b-908f-e7faad4cf67f" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2013.png"><img style="width:1223px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2013.png"/></a></figure><p id="bdd40b56-7d79-4557-9fae-92db9e2fd1d5" class="">9.</p><figure id="1541b0fc-1fda-4073-8e15-cc3b5263ff86" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2014.png"><img style="width:1025px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2014.png"/></a></figure><figure id="8368ed38-eeaa-4e9c-b3ed-412f65ad55aa" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2015.png"><img style="width:963px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2015.png"/></a></figure><p id="11b60a31-6733-4d2b-8a91-1f34e37fbe3d" class="">基本的思想是先将矩阵卷帘存放在多个处理器上，比如按行卷帘一共8行2个进程处理，则进程0处理0 2 4 6 8 行，进程1处理 1 3 5 7行，在回代的过程中进程i 会等待 (i-1)mod2的进程发来的数据进而计算变量x_i，比如进程1会等进程0处理完0行后，利用x0乘以第1行的系数发送过来即为w，进程1接收到w后利用(b-w)/a_1来直接计算变量x1，并且利用前面得到的变量解和矩阵系数计算出处理第2行进程0需要的数据，依次得到每个变量的解，该并行在矩阵分解存在并行，但计算过程由于前后具有依赖关系，所以难以并行。</p><p id="5506061a-80d9-4b6f-8a89-36810df11cb1" class="">10.</p><figure id="334c4d4f-8d04-4a94-a484-5d00d845e929" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2016.png"><img style="width:1029px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2016.png"/></a></figure><figure id="8cdafd6c-c440-4da6-8c64-67c7a8054fc1" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2017.png"><img style="width:924px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2017.png"/></a></figure><p id="6756fa66-a74a-42bc-a456-c9f966d26f38" class="">并行的Gauss-Seidel算法的主要思路是将系数矩阵$A$分成若干个子矩阵，并将每个子矩阵分配给一个处理器或计算节点来处理。在每个处理器或计算节点内部，可以使用串行的Gauss-Seidel算法来计算该子矩阵的解向量，从而加速整个线性方程组求解的过程。</p><p id="99c11790-0726-4b6c-988c-2cf946201940" class="">可以使用all to all函数转换成每个处理机以行的形式存放，然后分别计算的出解向量</p><p id="eefc00d5-ad95-4ef5-8157-0d42356aabb1" class="">也可以只计算自己这一列的相乘结果最后通过MPI_Scan，或者MPI_reduce,归约到一个进程中进行最终的解向量，并判断最后是否终止迭代</p><figure id="b5a5c371-07d4-4870-84d3-1983ba980094" class="link-to-page"><a href="tex8/Untitled b5a5c37107d4487084d31983ba980094.html">Untitled</a></figure><p id="cb83728c-ecf3-4df8-bcfb-d0748119ca9b" class="">11.</p><figure id="47321c1d-ed48-4435-84c4-460f3f71ccb8" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2018.png"><img style="width:1044px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2018.png"/></a></figure><figure id="3b6bb86a-c237-4636-979e-2dbbd15b7c18" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2019.png"><img style="width:1007px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2019.png"/></a></figure><figure id="32fbb6d3-77a9-4992-8be5-cb2c12b20cbc" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2020.png"><img style="width:1052px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2020.png"/></a></figure><figure id="5e9cbf26-1706-4578-a6d9-0d1fd12c08a1" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2021.png"><img style="width:1146px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2021.png"/></a></figure><p id="877331e4-ede3-48fd-96fa-fe981be2f77e" class="">12.</p><figure id="2abd94e1-a70a-4a60-a238-d07daabd37d7" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2022.png"><img style="width:1053px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2022.png"/></a></figure><p id="7769ed03-fe2a-4e68-9a9a-0e633337d51b" class="">可以每个处理机计算完本行的Ax+b后再统一发送归约到进程0中进行最终的加法加b的操作</p><figure id="6f101bc4-743f-4cb7-bbc4-77fe2633dba8" class="link-to-page"><a href="tex9/Untitled 6f101bc4743f4cb7bbc477fe2633dba8.html">Untitled</a></figure><p id="e2e2889b-f2ea-4940-85f7-55319095afe2" class="">12(1)按行分块并且最后归约到x中</p><pre id="9763b72a-2d12-4416-9918-ff4d5322af85" class="code"><code>void mul(int row, int col, int m, int A[][lda], int x[], int c[],int b[])
+{
+    for (int i = 0; i &lt; row; i++)
+    {
+        c[i] = 0;
+        for (int j = col; j &lt; col + m; j++)
+				{
+					c[i] += A[i][j] * x[j] ;
+				}
+        c[i]+=b[i];
+    }
+		
+}
+void matmul(int np, int iam, MPI_Comm comm, int m, int n, int A[][lda], int x[],
+            int b[], int c[],int d[])
+{
+    MPI_Status st;
+
+    mul((iam+1)*n/np, 0, n, A, x, c,b); //先乘,结果放在c中
+    if (iam == 0)
+    {
+      
+        for (int i = 1; i &lt; np; i++)
+		    {
+						int type_size;
+						MPI_Type_size(MPI_INT, &amp;type_size);
+						//接收的结果按顺序排列收集到d中
+            MPI_Recv(d+i*(n/np)*type_size, n/np, MPI_INT, i, 0, comm, &amp;st); //接收其他进程计算结果
+            
+        }
+				讲结果存放回x
+				memcpy(x, d, n * type_size);
+				
+        for (int i = 1; i &lt; np; i++)
+            MPI_Send(x, n, MPI_INT, i, 1, comm); //将汇总之后的结果发送给其他进程
+    }
+    else
+    {
+        MPI_Send(c, n/np, MPI_INT, 0, 0, comm);      //计算结果发给0号进程汇总
+        MPI_Recv(x, n, MPI_INT, 0, 1, comm, &amp;st); //接收汇总之后的结果
+    }
+}</code></pre><p id="ecc30a40-5963-444a-ad75-dbe2691e6879" class="">
+</p><p id="9bfc1ca0-df50-4aa7-a39d-fc85850b479e" class="">12(2)按列分块:</p><pre id="870e7b9b-3696-477d-bc97-8fb4cbd64add" class="code"><code>void mul(int row, int col, int m, int A[][lda], int x[], int c[])
+{
+    for (int i = 0; i &lt; row; i++)
+    {
+        c[i] = 0;
+        for (int j = col; j &lt; col + m; j++)
+            c[i] += A[i][j] * x[j];
+    }
+}
+
+void matmul(int np, int iam, MPI_Comm comm, int m, int n, int A[][lda], int x[],
+            int b[], int c[])
+{
+    MPI_Status st;
+
+    mul(n, iam * m, m, A, x, c); //先乘,结果放在c中
+    if (iam == 0)
+    {
+        for (int i = 0; i &lt; n; i++)
+        {
+            x[i] = c[i] + b[i]; //自己进程的计算结果与b的和
+        }
+        for (int i = 1; i &lt; np; i++)
+        {
+            MPI_Recv(b, n, MPI_INT, i, 0, comm, &amp;st); //接收其他进程计算结果
+            for (int j = 0; j &lt; n; j++)
+            {
+                x[j] += b[j]; //结果更新
+            }
+        }
+        for (int i = 1; i &lt; np; i++)
+            MPI_Send(x, n, MPI_INT, i, 1, comm); //将汇总之后的结果发送给其他进程
+    }
+    else
+    {
+        MPI_Send(c, n, MPI_INT, 0, 0, comm);      //计算结果发给0号进程汇总
+        MPI_Recv(x, n, MPI_INT, 0, 1, comm, &amp;st); //接收汇总之后的结果
+    }
+}</code></pre><p id="341202f3-c71e-4713-ae3d-cb04d34f6685" class="">13.</p><figure id="736d69e2-2f17-4e8d-83db-97f479ee1029" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2023.png"><img style="width:1043px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2023.png"/></a></figure><p id="eae66c3e-8554-4f9e-b922-46161a5f4a8c" class="">列列分块复杂度</p><figure id="8031b1b8-1436-4bcd-80e7-b47e6b6914e0" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2024.png"><img style="width:805px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2024.png"/></a></figure><p id="70547378-7d54-41cc-b921-fd3f67215d3e" class="">cannon复杂度</p><figure id="53238de1-0783-4b32-9ec7-d27c57d4ce7f" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2025.png"><img style="width:1094px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2025.png"/></a></figure><p id="ab5f1ef0-9a31-41c3-b08f-a86439371983" class=""><a href="https://www.docin.com/p-1973877147.html">https://www.docin.com/p-1973877147.html</a></p><p id="94d75fa7-eb45-498c-bd75-36e0ae303911" class=""><a href="https://blog.csdn.net/cncyww/article/details/80727732">https://blog.csdn.net/cncyww/article/details/80727732</a></p><p id="11ea637d-d8ba-4877-8a71-b6af395d88bc" class=""><a href="https://www.bilibili.com/read/cv11493374/">https://www.bilibili.com/read/cv11493374/</a></p><figure id="b82d8bec-9e0e-4171-9e92-8387808c32c4" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2026.png"><img style="width:954px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2026.png"/></a></figure><p id="e7998768-884f-459e-8307-eee0abd37624" class="">p个处理器都充分利用，而且和处理器的结构是相适应搭配的。</p><p id="2ff9c2c7-a5bd-4768-9d8c-29b97a3cfef1" class="">14.设n是环形结构的节点数，记节点之间消息通讯的长度为l证明l＜n/2</p><figure id="b14f9fb9-ae69-49fb-a2c0-68e9199b1cb2" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2027.png"><img style="width:1018px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2027.png"/></a></figure><p id="d5cd8a30-e69c-4e31-805b-2c38647c7111" class="">假设节点之间的消息通讯的长度为l，为了证明l &lt; n/2，我们可以进行如下的推导：</p><p id="da42c1d2-fa46-4ea5-803a-f185b94a6ba3" class="">首先，我们可以考虑在环形结构中任取两个相邻节点之间的距离。假设这两个节点的编号分别为i和i+1（节点的编号从0开始）。因为这是一个环形结构，所以节点i+1也可以看作是节点i+n+1（其中n为节点数），因此，这两个节点之间的距离为：</p><p id="7902efa7-c815-480f-887f-455aece8fe45" class="">|i - (i+1)| mod n = 1</p><p id="b7237522-512c-4e44-9f06-0e4a591f81e6" class="">接下来，我们考虑环形结构中任意两个节点之间的距离。假设这两个节点的编号分别为i和j（i &lt; j）。由于这是一个环形结构，所以节点j也可以看作是节点j+n，因此，这两个节点之间的距离为：</p><p id="1d64a1f9-8956-4cc4-9135-005297e837de" class="">|j - i| mod n</p><p id="c5b89057-dce5-438c-8685-68564790150b" class="">如果我们将节点i和节点j的编号分别表示为：</p><p id="1f11b872-ab29-43ac-b99a-9ec4d51135df" class="">i = an + r1 j = bn + r2</p><p id="a61bb2fb-109d-4adf-a627-9f975367a3a3" class="">其中，a和b为非负整数，r1和r2为小于n的非负整数。根据上式，节点i和节点j之间的距离可以表示为：</p><p id="184e8207-2730-4bee-86cb-545fc47e4967" class="">|j - i| mod n = |bn + r2 - an - r1| mod n = |(b-a)n + (r2 - r1)| mod n</p><p id="303700b2-5fbe-4316-94a0-21fceb428fb1" class="">因为r1和r2都小于n，所以|r2 - r1| &lt;= n - 1。因此，我们可以将|r2 - r1| mod n替换为n - |r2 - r1|，从而得到：</p><p id="4c173442-ea39-4cd6-a16e-84e9ddcd9d4b" class="">|j - i| mod n = min{(b-a)n + (r2 - r1), (a-b)n + (r1 - r2)}</p><p id="610a35c2-56cc-47b7-adc1-0ea3ddea5230" class="">如果我们假设i和j之间的消息通讯的长度为l，则l必须大于等于上式中两个可能的距离的较小值。因此，我们可以得到：</p><p id="85a07a1a-1ff0-45b7-b537-87c2f0eaaf07" class="">l &gt;= min{(b-a)n + (r2 - r1), (a-b)n + (r1 - r2)}</p><p id="b251b84f-5084-41ab-b0c1-7b21843ae7fc" class="">如果我们希望证明l &lt; n/2，我们可以对上式进行推导。首先，我们可以将上式中的(a-b)n和(b-a)n抵消，得到：</p><p id="bb085337-5ac2-4faa-bc29-5c4cb31f2603" class="">l &gt;= min{|r2 - r1|, n - |r2 - r1|}</p><p id="66ac4a0b-ec34-4315-948c-f431cbc39642" class="">接下来，我们考虑这两个值的大小关系。如果|r2 - r1| &lt; n/2，则min{|r2 - r1|, n - |r2 - r1|} = |r2 - r1|，因此，有：</p><p id="7b66bc22-dd7b-4b9e-bc54-0c2d7968529b" class="">l &gt;= |r2 - r1|</p><p id="31b57ddf-3709-4000-b659-5373338366ec" class="">即，节点i和节点j之间的距离不能超过消息通讯的长度l。如果|r2 - r1| &gt;= n/2，则min{|r2 - r1|, n - |r2 - r1|} = n - |r2 - r1|，因此，有：</p><p id="a0268982-ba47-4d24-8553-bbe65adbc91c" class="">l &gt;= n - |r2 - r1|</p><p id="e73919ed-b3b4-4fc2-bb58-fa99c7534387" class="">即，节点i和节点j之间的</p><hr id="15230001-efac-49c3-96a9-7cc06c1b3dfa"/><p id="4987d60c-7e77-4c2c-bbb2-8c02a545438d" class=""><strong>You:</strong></p><p id="7aa473e1-444a-4bb4-a248-d78a9b71814d" class="">继续</p><hr id="7ff60068-ad22-4ea7-96b9-a291df153409"/><p id="de389c03-ab43-4c99-a361-b6f1aa881a00" class=""><strong>ChatGPT:</strong></p><p id="d83333e8-c7af-4681-bd68-a7672fa4151b" class="">假设l &gt;= n/2，考虑节点之间的通讯情况。</p><p id="b914a245-4193-4c8d-ad2f-20268e1a3807" class="">对于节点i，它需要与相邻节点进行通讯，分别是i-1和i+1。由于是环形结构，节点n-1的下一个节点是0，节点0的上一个节点是n-1。因此，节点i需要与i-1和i+1进行通讯，或者与i-1和i+1的某一个进行通讯。</p><p id="ed96a57e-8907-4a3e-bf9a-d67092a0301e" class="">现在考虑节点i-1和i+1之间的通讯，如果l &gt;= n/2，那么它们之间的距离就大于等于n/2，即它们之间的节点数目大于等于n/2。因此，它们之间的通讯距离就大于等于n/2，而节点i到i-1（或i+1）的距离是1，因此节点i和节点i-1（或i+1）之间的通讯距离就大于n/2，这与前面得到的结论矛盾。</p><p id="85e28409-c84b-46d0-9d34-7282429cfe35" class="">因此，假设不成立，即l &lt; n/2。因此，对于任意一个环形结构，节点之间消息通讯的长度一定小于n/2。</p><p id="f7266ad1-cca4-426c-a1b3-4a9cdff1ac02" class="">15.</p><figure id="5491b4e7-eab2-4d8a-80e5-2b3ba6096ee0" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2028.png"><img style="width:685px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2028.png"/></a></figure><p id="343ee233-3c82-4f89-920b-81aabd423564" class="">2D环形互连结构是一种常见的并行计算结构，其中节点被组织成一个二维网格，并且每个节点只能与其上下左右四个相邻节点进行通讯。假设该结构共有n\*n个节点，每个节点与其相邻节点的距离为1，那么可以使用数学归纳法证明，对于任意两个节点i和j，它们之间的消息通讯的距离l一定小于n。</p><p id="178bdbd1-d3e2-4673-9388-f940d35b8e49" class="">当n=1时，结论显然成立，因为只有一个节点，不存在消息通讯的距离。</p><p id="83178d86-f7da-46b6-9d4e-f3f2795aae72" class="">假设n=k时结论成立，即对于任意两个节点i和j，它们之间的消息通讯的距离l一定小于k。</p><p id="198f60b6-2c5d-46b0-a436-e55897dcf52d" class="">考虑n=k+1时的情况，将节点i和j分为两类：</p><ul id="67840a64-db3b-4a3f-b7cb-905a92755dc0" class="bulleted-list"><li style="list-style-type:disc">i和j在同一行或同一列。这种情况下，它们之间的距离l就是它们在同一行或同一列上的距离，显然小于等于k。</li></ul><ul id="01744f8c-1bf1-4adf-ba2f-9b5c9f981861" class="bulleted-list"><li style="list-style-type:disc">i和j不在同一行或同一列。这种情况下，可以找到一个节点p，使得i和p在同一行或同一列，j和p在同一行或同一列，且i和p、j和p之间的距离都小于等于k。由归纳假设，i和p、j和p之间的距离都小于k，因此i和j之间的距离不会超过2k。又因为2k &lt; k+1，因此i和j之间的距离l一定小于k+1。</li></ul><p id="697a6bf9-a067-4007-b348-7a36f1dcf98a" class="">综上所述，对于任意两个节点i和j，它们之间的消息通讯的距离l一定小于n，即l&lt;n。特别地，在2D环形互连结构中，l&lt;n/2，这意味着该结构中的消息通讯距离相对较短，因此可以更快地进行消息传递。</p><p id="4145148b-24b8-4e54-b817-3cae79c34abd" class="">16.从加速比的基本定义出发，证明Amdahl定律和Gustafson定律</p><figure id="d98f8084-4a71-443a-b2bd-3a62f0497169" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2029.png"><img style="width:983px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2029.png"/></a></figure><figure id="20bdfd4c-6cbb-4623-af7f-ff73305eb4fa" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2030.png"><img style="width:681px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2030.png"/></a></figure><figure id="9a63123e-8a8c-49a5-a291-9dc86091828f" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2031.png"><img style="width:630px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2031.png"/></a></figure><p id="5ba6fcef-4cd7-44c0-80c2-b8f444b7f9a0" class="">17.</p><figure id="16b91fd6-5cea-46ef-bb46-32fdddbcfbb8" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2032.png"><img style="width:816px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2032.png"/></a></figure><pre id="4de24381-c041-4532-a303-f8e4c283e03f" class="code"><code>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    int m, n, i, j, k;
+    double x, y, real, imag;
+
+    printf(&quot;请输入 m 的值：&quot;);
+    scanf(&quot;%d&quot;, &amp;m);
+
+    n = pow(2, m);
+
+    printf(&quot;请输入 x 的值：&quot;);
+    scanf(&quot;%lf&quot;, &amp;x);
+
+    for (i = 0; i &lt; n; i++) {
+        real = cos(2 * M_PI * i / n);
+        imag = sin(2 * M_PI * i / n);
+
+        y = 1;
+
+        for (j = 0; j &lt; m; j++) {
+            k = (i &gt;&gt; j) &amp; 1;
+            y *= (k * x + (1 - k));
+        }
+
+        if (fabs(y - 1) &lt; 0.000001) {
+            printf(&quot;x 的 %d 次根为 %.6lf + %.6lf i\n&quot;, i, real, imag);
+        }
+    }
+
+    return 0;
+}</code></pre><p id="5e47a44c-0082-46ac-97eb-0f9f8267aa86" class="">18.</p><figure id="19cd504a-5501-4f73-989e-061a8cafe99c" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2033.png"><img style="width:1017px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2033.png"/></a></figure><pre id="159453d4-b95e-4fdb-a8b0-f99cc59cb064" class="code"><code>void bit_reverse_reorder(int *data, int n)
+{
+    int i, j, k;
+    for (i = 1, j = n / 2; i &lt; n - 1; i++) {
+        if (i &lt; j) {
+            // 交换i和j位置的元素
+            int temp = data[j];
+            data[j] = data[i];
+            data[i] = temp;
+        }
+        k = n / 2;
+        while (j &gt;= k) {
+            j = j - k;
+            k = k / 2;
+        }
+        if (j &lt; k) {
+            j += k;
+        }
+    }
+}</code></pre><p id="3e2f7636-745e-41de-9c2d-0ca7874a86d7" class="">19.划分行列二维子通信子</p><pre id="161b9d9d-eec3-454b-9722-70f7b99af612" class="code"><code>void mesh(int iam, int np, MPI_Comm comm, int *myrow, int *mycol, MPI_Comm *rowcom, MPI_Comm *colcom,int p,int q)
+//int iam, np, myrow, mycol;
+//MPI_Comm comm, rowcom, colcom;
+{
+    int rowsize, colsize;
+    //用指针定义函数的好处就是不会出现未定义局部变量，比如要写入的变量一开始只是声明没有初始化，所以会出现未定义局部变量的错误，所以此时要写入的变量需要定义成指针
+    if (p * q &gt; np) return;
+    int rcolor = iam / q;
+    MPI_Comm_split(comm, rcolor,iam,  rowcom);
+    int lcolor = iam % q;
+    MPI_Comm_split(comm, lcolor, iam, colcom);
+
+    MPI_Comm_rank(*rowcom, mycol);
+    MPI_Comm_rank(*colcom, myrow);
+
+		printf(&quot;%d row: %d col: %d&quot;, iam, *myrow, *mycol);
+
+    MPI_Comm_size(*rowcom, &amp;rowsize);
+    MPI_Comm_size(*colcom, &amp;colsize);
+    
+    printf(&quot;rowsize%d colsize%d&quot;, rowsize,colsize);
+    
+}</code></pre><figure id="d13a74ff-ab95-4fac-9d6f-0319215adcef" class="link-to-page"><a href="tex10/MPI_Comm_split d13a74ffab954fac9d6f0319215adcef.html">MPI_Comm_split </a></figure><figure id="d05f3758-4677-4feb-b828-537c9c848d66" class="image"><a href="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2034.png"><img style="width:689px" src="%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%204b1ebbf175bd476eab8de88fd03ca335/Untitled%2034.png"/></a></figure><pre id="64c61753-7a46-4772-8de6-88b4e14ecf62" class="code"><code>MPI_Comm_rank(*rowcom, mycol);
+MPI_Comm_rank(*colcom, myrow);</code></pre><p id="f0932d07-04a9-49dc-8370-afb2616d4bd2" class="">为啥从行里找列，从列里找行呢?</p><p id="46b8aa40-6bab-46ba-9915-e9ad43af9d8e" class="">因为MPI_Comm_rank得到的是处于的同一颜色中的相对位置</p><p id="459be530-37e5-423f-906f-7f359eba8334" class="">int rcolor = iam / q;</p><p id="347c1081-58eb-4143-b3c4-3fbc602d9cb9" class="">MPI_Comm_split(comm, rcolor,iam,  rowcom);</p><p id="31e29b94-75ef-4a27-8a27-210ea3f01d9a" class="">q=5 np=15</p><p id="c38d1af6-957d-4368-92f8-32a488e47e5f" class="">此时rcolor有三个0，1，2</p><p id="adf9fd9d-4a07-430a-b74a-790f843d9c58" class="">每个颜色中有五个进程排序从0—4，所以实际上得到的是列的号，正好对应上，虽然有点绕确实是这样。</p><p id="4e9ac37f-058f-4560-9c50-ebab35296e03" class="">2022年试题</p><p id="6ad63ae5-3575-452a-a8a6-7b13b8dccc60" class=""><a href="https://blog.csdn.net/qq_43840665/article/details/128749341">https://blog.csdn.net/qq_43840665/article/details/128749341</a></p><p id="eadd9afa-084d-4d3a-b43e-6518ae216956" class="">
+</p><p id="f7f642c6-b923-4455-8ae5-30f22a0baf4e" class=""><a href="https://blog.csdn.net/weixin_37950515/article/details/106741063?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-106741063-blog-128749341.235%5Ev36%5Epc_relevant_default_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-106741063-blog-128749341.235%5Ev36%5Epc_relevant_default_base3&amp;utm_relevant_index=1">https://blog.csdn.net/weixin_37950515/article/details/106741063?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-106741063-blog-128749341.235^v36^pc_relevant_default_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-106741063-blog-128749341.235^v36^pc_relevant_default_base3&amp;utm_relevant_index=1</a></p></div></p></div></article></body></html>

@@ -1,0 +1,786 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MPI函数目录</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b3d76080-b9e8-4779-8e5a-941f9b4deba6" class="page mono"><header><h1 class="page-title">MPI函数目录</h1><p class="page-description"></p></header><div class="page-body"><ol type="1" id="b7da0d7c-b27a-4c58-89dd-1df4f7ff52ac" class="numbered-list" start="1"><li>int MPI_Init( int *argc, char ***argv )</li></ol><ol type="1" id="4f3b872d-bc0b-4034-bf2f-9399bf7d6e9a" class="numbered-list" start="2"><li>int MPI_Finalize(  )<p id="2b400646-2224-4d98-9dae-0796f7334e33" class="">int MPI_Initialized( int flag )</p></li></ol><ol type="1" id="80345717-eee7-434b-801a-78af6634e678" class="numbered-list" start="3"><li>int MPI_Comm_size( MPI_Comm comm, int *size )</li></ol><ol type="1" id="0fa778a0-218f-4287-90e7-dfee3bf53143" class="numbered-list" start="4"><li>int MPI_Comm_rank( MPI_Comm comm, int *rank )</li></ol><ol type="1" id="577af178-dec1-4e08-8bf2-67c641e1fc41" class="numbered-list" start="5"><li>int MPI_Comm_dup( MPI_Comm comm, MPI_Comm *newcomm )</li></ol><ol type="1" id="5be5b7cf-6e54-444f-bb2a-5fc6888bd3c7" class="numbered-list" start="6"><li>int MPI_Comm_split(MPI_Comm comm, int color, int key,
+MPI_Comm *newcomm)</li></ol><ol type="1" id="9a9d8872-3cc8-4d38-89f7-08793e36ced0" class="numbered-list" start="7"><li>int MPI_Send( void* buf, int count, MPI_Datatype datatype,
+int dest, int tag, MPI_Comm comm )</li></ol><ol type="1" id="476258fd-6682-47ed-a01f-889b38e3b725" class="numbered-list" start="8"><li>int MPI_Recv( void* buf, int count, MPI_Datatype datatype,
+int source, int tag, MPI_Comm comm, MPI_Status *status )</li></ol><figure id="149bf709-68f1-47eb-9b3f-d1ecfc0dd510" class="image"><a href="MPI%E5%87%BD%E6%95%B0%E7%9B%AE%E5%BD%95%20b3d76080b9e847798e5a941f9b4deba6/Untitled.png"><img style="width:775px" src="MPI%E5%87%BD%E6%95%B0%E7%9B%AE%E5%BD%95%20b3d76080b9e847798e5a941f9b4deba6/Untitled.png"/></a></figure><ol type="1" id="657ebb5c-fe62-49a7-b21f-c8e1c8e0d392" class="numbered-list" start="9"><li>int MPI_Sendrecv( void *sendbuf, int sendcount,
+MPI_Datatype sendtype, int dest, int sendtag,
+void *recvbuf, int recvcount, MPI_Datatype recvtype,
+int source,int recvtag,MPI_Comm comm,MPI_Status *status)</li></ol><p id="cd0e6ddc-5c40-4f4d-8051-8952e3776fbe" class=""><div class="indented"><p id="686f810d-b176-4877-b18a-d7aede315ac6" class="">int MPI_Sendrecv_replace( void *buf, int count,
+MPI_Datatype type, int dest, int sendtag,
+int source,int recvtag,MPI_Comm comm,MPI_Status *status)</p></div></p><ol type="1" id="b36d47ab-6057-4382-b7b7-a6780c316a34" class="numbered-list" start="10"><li>int MPI_Probe(int source, int tag, MPI_Comm comm,
+MPI_Status *status )<p id="0659ac95-01b8-4783-8266-6e357b952ae2" class="">
+</p><p id="4d930436-e0ea-4107-b8ef-f22a4c88f776" class="">int MPI_Iprobe(int source, int tag, MPI_Comm comm,
+int* flag, MPI_Status *status )</p></li></ol><ol type="1" id="7b974ffa-048b-46fe-adfd-97c57abd6237" class="numbered-list" start="11"><li>int MPI_Get_count( MPI_Status *status, MPI_Datatype type,int *count )</li></ol><ol type="1" id="61153708-a1e0-4046-b787-92fe15c94dd2" class="numbered-list" start="12"><li>int MPI_Isend( void* buf, int count, MPI_Datatype datatype,int dest, int tag, MPI_Comm comm,   MPI_Request *request )</li></ol><ol type="1" id="42ffa6e8-f5fa-45af-8e44-240b74bd1b44" class="numbered-list" start="13"><li>int MPI_Irecv( void* buf, int count, MPI_Datatype datatype,
+int source, int tag, MPI_Comm comm,
+MPI_Request *request )</li></ol><ol type="1" id="d980ce42-8878-4aad-9a59-9acf1170d18e" class="numbered-list" start="14"><li>int MPI_Wait( MPI_Request *request, MPI_Status *status )<p id="df4a5785-3338-4fd0-9daf-e011304ce29a" class="">
+</p><p id="9dfaaba1-8601-43f6-8783-77a25399ba21" class="">int MPI_Waitany( int count, MPI_Request *requests,
+int *index, MPI_Status *status )</p><p id="01fb1b76-9034-4eaa-8c6f-3699880632ef" class="">
+</p><p id="fcb3988f-5b0e-4122-9750-0a1ba60496c4" class="">int MPI_Waitall( int count, MPI_Request *requests,
+MPI_Status *statuses )</p><p id="cd96e271-f3e4-4b10-a6c8-abb5c309b929" class="">
+</p><p id="ffe66971-8c89-4dcf-ba2e-d67b4ff6e177" class="">int MPI_Waitsome( int incount, MPI_Request *requests,
+int *outcount,int *indices, MPI_Status *statuses )</p></li></ol><ol type="1" id="4668ec25-dcaf-44f8-bbc9-80ff86a548d4" class="numbered-list" start="15"><li>int MPI_Test( MPI_Request *request, int *flag, MPI_Status *status )</li></ol><p id="d813ad50-e454-4df9-980b-269962243f58" class=""><div class="indented"><p id="c45d3ac1-a80c-4aa5-8937-cffbc2037b91" class="">int MPI_Testany( int count, MPI_Request *requests,
+int *index, int *flag, MPI_Status *status )</p><p id="cabda0c1-1ca1-466e-925c-9cfe88c3a80f" class="">
+</p><p id="4dd812e7-257b-4eb9-a28b-8a352c9a53d2" class="">int MPI_Testall( int count, MPI_Request *requests,
+int *flag, MPI_Status *statuses )</p><p id="cd494c0b-810d-472d-a2e1-7c46e307710f" class="">
+</p><p id="4b5da918-bb12-47e2-b556-d335c2050d25" class="">int MPI_Testsome( int incount, MPI_Request *requests,
+int *outcount,int *indices, MPI_Status *statuses )</p></div></p><ol type="1" id="48bbb0ca-d0b5-4a08-87c9-d8b0df784236" class="numbered-list" start="16"><li>int MPI_Send_INIT( void* buf, int count, MPI_Datatype type,
+int dest, int tag, MPI_Comm comm, MPI_Request *request )</li></ol><ol type="1" id="caf34a05-9bb5-458b-8ae7-0e3ce1728e0b" class="numbered-list" start="17"><li>int MPI_Recv_init( void* buf, int count, MPI_Datatype type,
+int src, int tag, MPI_Comm comm, MPI_Request *request )</li></ol><ol type="1" id="4e0cdbaa-6936-4ba7-a13a-ffe35bab41c0" class="numbered-list" start="18"><li>int MPI_Start( MPI_Request *request )</li></ol><p id="a0dcab58-7267-42cb-add6-1f79ea63094c" class=""><div class="indented"><p id="f193ee30-8505-45da-86fc-3fe0d0fa6d52" class="">int MPI_Startall( int count, MPI_Request *requests )</p></div></p><ol type="1" id="e86bec81-22d5-4aa8-b982-29d1c56b47f9" class="numbered-list" start="19"><li>int MPI_Request_free( MPI_Request *request )</li></ol><ol type="1" id="52e3755d-4db5-4aa1-bd87-8838edade154" class="numbered-list" start="20"><li>int MPI_Cancel( MPI_Request *request )<p id="84ba5156-7cef-49a8-a58b-f5830e95025a" class="">int MPI_Test_cancelled( MPI_Status *status, int *flag )</p></li></ol><ol type="1" id="fb556260-8809-473d-add6-a4dd7d556134" class="numbered-list" start="21"><li>int MPI_Type_contiguous(int count,MPI_Datatype oldtype,
+MPI_Datatype *newtype )</li></ol><ol type="1" id="616906a5-c15b-43cd-8d9d-210e9fee1d73" class="numbered-list" start="22"><li>int MPI_Type_commit( MPI_Datatype *datatype )</li></ol><ol type="1" id="5c3e790a-b630-4fdf-b687-f9a9abe10a41" class="numbered-list" start="23"><li>int MPI_Type_free( MPI_Datatype *datatype )</li></ol><ol type="1" id="77c421d9-a3bf-4f10-a277-659035f18242" class="numbered-list" start="24"><li>int MPI_Type_extent(MPI_Datatype datatype,MPI_Aint *extent)</li></ol><ol type="1" id="b09d987a-8206-42a4-8d16-b9874f614a4d" class="numbered-list" start="25"><li>int MPI_Address( void* location, MPI_Aint *address )</li></ol><ol type="1" id="f11e029b-de1d-410f-b32d-e660d8f8a34a" class="numbered-list" start="26"><li>int MPI_Type_vector( int count, int blocklength,
+int stride, MPI_Datatype oldtype,
+MPI_Datatype *newtype )</li></ol><ol type="1" id="f997d64a-5d06-4088-a750-0375a4db0d61" class="numbered-list" start="27"><li>int MPI_Type_hvector(int count, int blocklength,
+int stride, MPI_Datatype oldtype,
+MPI_Datatype *newtype )</li></ol><ol type="1" id="33cf402d-5ff8-4193-8272-20e99a5c00d5" class="numbered-list" start="28"><li>int MPI_Type_indexed(int count,int *array_of_blocklengths,
+int *array_of_displacements,
+MPI_Datatype oldtype,
+MPI_Datatype *newtype )</li></ol><ol type="1" id="af99ae3e-b877-43eb-9e15-abc662ae9d04" class="numbered-list" start="29"><li>int MPI_Type_hindexed(int count,int *array_of_blocklengths,
+int *array_of_displacements,
+MPI_Datatype oldtype,
+MPI_Datatype *newtype )</li></ol><ol type="1" id="832f4563-e149-4fd8-9061-fe4203766924" class="numbered-list" start="30"><li>int MPI_Type_struct(int count,int *array_of_blocklengths,
+int *array_of_displacements,
+MPI_Datatype *array_of_types,
+MPI_Datatype *newtype)</li></ol><ol type="1" id="9bbe72f4-b7ab-44a4-827e-d7d67094937d" class="numbered-list" start="31"><li>int MPI_Pack(void* inbuf,int incount,MPI_Datatype datatype,
+void* outbuf, int outsize, int *position,
+MPI_Comm comm )</li></ol><ol type="1" id="4f1cb417-2e0a-40f3-ad0c-4ff3fb872b6a" class="numbered-list" start="32"><li>int MPI_Unpack( void* inbuf, int insize, int <em>position,
+void</em> outbuf, int outcount,
+MPI_Datatype datatype, MPI_Comm comm )</li></ol><ol type="1" id="714b804a-60fa-433c-9033-066fbd690ad4" class="numbered-list" start="33"><li>int MPI_Pack_size( int incount, MPI_Datatype datatype,
+MPI_Comm comm, int *size )</li></ol><ol type="1" id="335400a6-15b5-4739-9610-f9820d5f6f19" class="numbered-list" start="34"><li>int MPI_Barrier( MPI_Comm comm )</li></ol><ol type="1" id="c44ae9a8-a750-4b69-a04e-2d25a8186253" class="numbered-list" start="35"><li>int MPI_Bcast(void* buffer,int count,MPI_Datatype datatype,
+int root, MPI_Comm comm )</li></ol><ol type="1" id="ff8db0b4-a6aa-419b-9fa9-0d5108341ff8" class="numbered-list" start="36"><li>int MPI_Gather( void* sendbuf, int sendcount,
+MPI_Datatype sendtype, void* recvbuf, int recvcount,
+MPI_Datatype recvtype, int root, MPI_Comm comm )<p id="91bc58e3-3dce-4ac5-b667-90c6639e525c" class="">
+</p><p id="bd6f8d48-f34a-4eaa-a676-a42b11a007fe" class="">int MPI_Allgather( void* sendbuf, int sendcount,
+MPI_Datatype sendtype, void* recvbuf, int recvcount,
+MPI_Datatype recvtype, MPI_Comm comm )</p><p id="d3de49be-ed39-4733-a262-9a813ce20773" class="">
+</p><p id="0448dcac-f3c5-4a31-8f9d-e9c4a9f97e30" class="">int MPI_Gatherv( void* sendbuf, int sendcount,
+MPI_Datatype sendtype, void* recvbuf,
+int *recvcounts, int *displs,
+MPI_Datatype recvtype, int root,
+MPI_Comm comm )</p><p id="a899bfea-248a-4258-aeda-c842ac6fe37c" class="">
+</p><p id="bdff17fd-5c26-4ef4-957a-27d988ced593" class="">int MPI_Allgatherv( void* sendbuf, int sendcount,
+MPI_Datatype sendtype, void* recvbuf,
+int *recvcounts, int *displs,
+MPI_Datatype recvtype, MPI_Comm comm)</p></li></ol><ol type="1" id="cc071bf0-4436-4479-b6e1-6c104b8e75a0" class="numbered-list" start="37"><li>int MPI_Scatter(void* sendbuf, int sendcount,
+MPI_Datatype sendtype, void* recvbuf,
+int recvcount, MPI_Datatype recvtype,
+int root, MPI_Comm comm )</li></ol><p id="8919def9-0a1f-4124-a808-c86510d7b380" class=""><div class="indented"><p id="9798962e-0445-4756-8d45-6a0803c9d22b" class="">int MPI_Scatterv(void* sendbuf, int *sendcounts,
+int <em>displs, MPI_Datatype sendtype,
+void</em> recvbuf, int recvcount,
+MPI_Datatype recvtype, int root,
+MPI_Comm comm )</p></div></p><ol type="1" id="08dc7041-0d45-46b4-94b4-51adb85860ad" class="numbered-list" start="38"><li>int MPI_Alltoall(void* sendbuf, int sendcount,
+MPI_Datatype sendtype,
+void* recvbuf, int recvcount,
+MPI_Datatype recvtype,
+MPI_Comm comm )</li></ol><p id="5ff7cd93-0c2e-4161-a3e8-5a6e615e3092" class=""><div class="indented"><p id="39b3a504-d795-4a0d-88bd-3686494a562f" class="">int MPI_Alltoallv(void* sendbuf, int *sendcounts,
+int <em>sdispls, MPI_Datatype sendtype,
+void</em> recvbuf, int *recvcounts,
+int *rdispls, MPI_Datatype recvtype,
+MPI_Comm comm )</p><p id="dd74b31f-b343-425e-99ea-a43074dabbe6" class="">
+</p></div></p><ol type="1" id="c78cd93f-4bbb-4605-9c39-e282be38955e" class="numbered-list" start="39"><li>int MPI_Reduce(void* sendbuf, void* recvbuf,
+int count,MPI_Datatype datatype,
+MPI_Op op, int root, MPI_Comm comm)</li></ol><p id="b0225587-60b9-4a0c-9fdf-070fda36df14" class=""><div class="indented"><p id="96975765-2bab-4ab1-b973-874fa21fa5c1" class="">int MPI_Allreduce(void* sendbuf, void* recvbuf,
+int count,MPI_Datatype datatype,
+MPI_Op op, MPI_Comm comm)</p><p id="78c8ecca-0666-410d-be08-90dc0431fcf1" class="">
+</p><figure id="6d5e7263-8dab-4add-8e83-9faee41b025e" class="image"><a href="MPI%E5%87%BD%E6%95%B0%E7%9B%AE%E5%BD%95%20b3d76080b9e847798e5a941f9b4deba6/Untitled%201.png"><img style="width:803px" src="MPI%E5%87%BD%E6%95%B0%E7%9B%AE%E5%BD%95%20b3d76080b9e847798e5a941f9b4deba6/Untitled%201.png"/></a></figure></div></p><ol type="1" id="b41a9806-b3f7-4899-8c46-9e06970c5196" class="numbered-list" start="40"><li>int MPI_Scan( void* sendbuf, void* recvbuf, int count,
+MPI_Datatype datatype,
+MPI_Op op, MPI_Comm comm )</li></ol><ol type="1" id="ec770693-580b-44de-8d2a-85d40f0a2f3d" class="numbered-list" start="41"><li>int MPI_Reduce_scatter(void* sendbuf, void* recvbuf,
+int *recvcounts,
+MPI_Datatype datatype, MPI_Op op,
+MPI_Comm comm )</li></ol><ol type="1" id="303bd0cf-0259-4568-8a28-efac2407f2ae" class="numbered-list" start="42"><li>int MPI_Op_create( MPI_User_fuction *function,
+int commute, MPI_Op *op )</li></ol><ol type="1" id="e2463cf4-c8e0-44e5-be70-f8a065ed7903" class="numbered-list" start="43"><li>int MPI_Op_free( MPI_Op *op )</li></ol><ol type="1" id="9df884c5-96d1-414f-bbcf-7bf20e1cdb96" class="numbered-list" start="44"><li>int MPI_Comm_group( MPI_Comm comm, MPI_Group *group )</li></ol><p id="6fbb2ad8-a039-4f2a-a390-7addedcdc198" class=""><div class="indented"><p id="b627146c-fbce-4e8d-a273-90f42c04e9e5" class="">int MPI_Group_union( MPI_Group group1, MPI_Group group2,
+MPI_Group *group )</p><p id="863b3c26-31c9-4aef-b879-6a6edc2a369b" class="">
+</p><p id="eb6c61c7-00af-4a98-ba96-7abf683edb4e" class="">int MPI_Group_intersection( MPI_Group group1,
+MPI_Group group2, MPI_Group *group )</p><p id="729823a6-c5ec-4e30-a0d4-217dda35b154" class="">
+</p><p id="d1a18615-b5e1-4b42-8014-d0a5f2eb688a" class="">int MPI_Group_difference( MPI_Group group1,
+MPI_Group group2, MPI_Group *group )</p><p id="7b5c8cfb-b35c-4efa-960f-3cebc3f9cf1a" class="">
+</p><p id="4726f2b1-e9eb-4890-bdce-b3aefb7b3256" class="">int MPI_Group_incl( MPI_Group group1, int n, int *ranks,
+MPI_Group *group )</p><p id="6a7f068e-d781-425f-82d7-4ae876d1960e" class="">
+</p><p id="3cf815de-fd34-4a03-b520-bc6821c0f599" class="">int MPI_Group_excl( MPI_Group group1, int n, int *ranks,
+MPI_Group *group )</p><p id="fbe9e212-7320-4a37-86c4-24b730827631" class="">
+</p><p id="f6c60f53-1400-4784-84ba-fbd34faf35b7" class="">int MPI_Group_range_incl( MPI_Group group1, int n,
+int ranges[][3], MPI_Group *group )</p><p id="e29a1b14-7a4c-4531-b9b6-acabba625200" class="">
+</p><p id="e2f61d1c-0dd5-4539-91e8-20c91874be47" class="">int MPI_Group_range_excl( MPI_Group group1, int n,
+int ranges[][3], MPI_Group *group )</p><p id="d140e1c9-90fa-4635-8f73-3e75d0b56cb4" class="">
+</p><p id="bcaef75a-78ff-4eb7-8da3-31bba0dfcd4c" class="">int MPI_Group_size( MPI_Group group, int *size )</p><p id="f2a2a09f-fce1-4c5c-ad38-b334d7dba634" class="">
+</p><p id="c2f3a13d-3681-4340-9afc-8adc828d6e63" class="">int MPI_Group_rank( MPI_Group group, int *rank )</p><p id="32a32e4c-841d-453c-9e8e-96f39ca32f7e" class="">
+</p><p id="835b76ff-e9db-4026-95f2-3a79ab28d740" class="">int MPI_Group_translate_ranks( MPI_Group group1, int n,
+int *ranks1, MPI_Group group2, int *ranks2 )</p><p id="7f5d0abf-39ed-4e06-8158-075395c80152" class="">
+</p><p id="9236195f-e064-4821-9e94-3a353171174b" class="">int MPI_Comm_create( MPI_Comm comm, MPI_Group group,
+MPI_comm *newcomm )</p><p id="71277bd2-f3f2-4f09-bcb7-e328b6ba8685" class="">
+</p><p id="65fc04c4-5152-4a69-b8a8-6d4850ad3058" class="">int MPI_Group_free( MPI_Group group )</p><p id="cd2117d3-29ee-474b-8483-a68838452352" class="">
+</p><p id="bda105ef-a690-4a31-96ec-a74e8a988bc6" class="">int MPI_Group_compare( MPI_Group group1,
+MPI_Group group2, int *result )</p><p id="198b96ed-f3e2-4059-b82d-8fa67cc1193c" class="">
+</p></div></p></div></article></body></html>
