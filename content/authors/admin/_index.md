@@ -26,7 +26,7 @@ bio: ''
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-   - icon: file-pdf
+  - icon: file-pdf
     icon_pack: fas
     label: 个人简历 
     link: uploads/xujils.pdf
@@ -41,7 +41,7 @@ social:
     link: uploads/GitHubrumf.pdf
   - icon: file-pdf
     icon_pack: fas
-    label: View history ๐•ᴗ•๐
+    label: View history 
     link: uploads/plan.txt
   - icon: envelope
     icon_pack: fas
