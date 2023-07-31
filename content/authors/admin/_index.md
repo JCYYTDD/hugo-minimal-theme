@@ -28,7 +28,7 @@ bio: ''
 social:
    - icon: file-pdf
     icon_pack: fas
-    label: 个人简历 ૮₍♡> < ₎ა
+    label: 个人简历 
     link: uploads/xujils.pdf
   - icon: github
     icon_pack: fab
@@ -37,7 +37,7 @@ social:
   # To enable, copy your resume/CV to `static/uploads/resume.pdf`
   - icon: file-pdf
     icon_pack: fas
-    label: View github入门实践 (ᐡっ ̫ •̥⸝⸝ᐡ)
+    label: View github入门实践
     link: uploads/GitHubrumf.pdf
   - icon: file-pdf
     icon_pack: fas
@@ -45,7 +45,7 @@ social:
     link: uploads/plan.txt
   - icon: envelope
     icon_pack: fas
-    label: View my_blog (*ᴗ͈ˬᴗ͈)ꕤ
+    label: View my_blog 
     link: uploads/komori.html
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
