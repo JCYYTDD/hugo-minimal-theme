@@ -26,24 +26,10 @@ bio: ''
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-  - icon: envelope
+   - icon: file-pdf
     icon_pack: fas
-    link: 'mailto:test@example.org'
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/wowchemy
-  - icon: instagram
-    icon_pack: fab
-    link: https://www.instagram.com/spacex/
-  - icon: weibo
-    icon_pack: fab
-    link: ttps://weibo.com/p/1008088f0ff813c3676d81a04a616ba555af0c/super_index
-  - icon: tiktok
-    icon_pack: fab
-    link: https://www.tiktok.com/@spacex.to.mars
-  - icon: orcid
-    icon_pack: fab
-    link: https://orcid.org/0000-0001-5547-3196
+    label: 个人简历 ૮₍♡> < ₎ა
+    link: uploads/xujils.pdf
   - icon: github
     icon_pack: fab
     link: https://github.com/JCYYTDD
@@ -51,15 +37,15 @@ social:
   # To enable, copy your resume/CV to `static/uploads/resume.pdf`
   - icon: file-pdf
     icon_pack: fas
-    label: View github入门实践
+    label: View github入门实践 (ᐡっ ̫ •̥⸝⸝ᐡ)
     link: uploads/GitHubrumf.pdf
   - icon: file-pdf
     icon_pack: fas
-    label: View history
+    label: View history ๐•ᴗ•๐
     link: uploads/plan.txt
   - icon: envelope
     icon_pack: fas
-    label: View my_blog
+    label: View my_blog (*ᴗ͈ˬᴗ͈)ꕤ
     link: uploads/komori.html
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
